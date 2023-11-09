@@ -13,7 +13,7 @@ public class TripServiceTest {
         // Given
         User user = new User();
         User userConnected = new User();
-        TripService tripService = new TripService(new UserServiceForTest(userConnected));
+        TripService tripService = new TripService(new UserServiceForTest(userConnected), tripByUser);
 
         // When
         List<Trip> tripsOfGivenUser = tripService.getTripsByUser(user);
@@ -28,7 +28,7 @@ public class TripServiceTest {
         User userConnected = new User();
         userParameter.addFriend(userConnected);
 
-        TripService tripService = new TripService(new UserServiceForTest(userConnected));
+        TripService tripService = new TripService(new UserServiceForTest(userConnected), tripByUser);
 
         // When
         List<Trip> tripsOfGivenUser = tripService.getTripsByUser(userParameter);
