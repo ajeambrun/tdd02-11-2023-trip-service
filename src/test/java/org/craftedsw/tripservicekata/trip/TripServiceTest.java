@@ -12,12 +12,19 @@ public class TripServiceTest {
     public void shouldDoSomething() throws Exception {
         // Given
         User user = new User();
-        TripService tripService = new TripService();
+        TripService tripService = new TripService(new UserServiceForTest());
 
         // When
         List<Trip> tripsOfGivenUser = tripService.getTripsByUser(user);
 
         // Then
         assertThat(tripsOfGivenUser).isEqualTo("Not an exception");
+    }
+}
+
+class UserServiceForTest implements UserServiceInterface {
+    @Override
+    public User getLoggedUser() {
+        return new User();
     }
 }
